@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Greeting</title>
+</head>
+
+<body>
+    <div>
+        <h1 th:text ="|Lista dei Film|" />
+    </div>
+    <div>
+        <ul>
+            <li th:each="movie : ${ListaFilm}" th:text = "|${movie.id}  ${movie.titolo}|"></li>
+        </ul>
+    </div>
+</body>
+
+</html>
