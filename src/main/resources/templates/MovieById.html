@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>MovieByID</title>
+</head>
+
+<body>
+    <div>
+        <h1 th:text ="|Film Selezionato|"/>
+    </div>
+    <div th:if = "${movie != null}">
+        <p th:text ="|Il film richiesto è il seguente : ${movie.titolo}|"></p>
+    </div>
+        <div th:if = "${movie == null}">
+        <p>La ricerca non ha prodotto risultati</p>
+    </div>
+    </div>
+</body>
+
+</html>

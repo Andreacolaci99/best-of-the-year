@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>SongsById</title>
+</head>
+
+<body>
+    <div>
+        <h1 th:text ="|Canzone Selezionata|"/>
+    </div>
+    <div th:if = "${songs != null}">
+        <p th:text ="|La canzone richiesta è la seguente : ${songs.titolo}|"></p>
+    </div>
+        <div th:if = "${songs == null}">
+        <p>La ricerca non ha prodotto risultati</p>
+    </div>
+    </div>
+</body>
+
+</html>

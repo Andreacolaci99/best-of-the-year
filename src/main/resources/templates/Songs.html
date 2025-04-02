@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Greeting</title>
+    <title>Songs</title>
 </head>
 
 <body>
@@ -11,7 +11,7 @@
     </div>
     <div>
         <ul>
-            <li th:each="songs : ${ListaCanzoni}" th:text = "|${songs.id}  ${songs.titolo}|"></li>
+            <li th:each="songs : ${songs}" th:text = "|${songs.id}  ${songs.titolo}|"></li>
         </ul>
     </div>
 </body>

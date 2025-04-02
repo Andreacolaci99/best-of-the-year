@@ -22,39 +22,71 @@ public class GreetingController {
         model.addAttribute("name", name);
         return "greeting";
     }
-   
-    @GetMapping("/movies")
-    public String getBestMovies(Model model) {
+
+    private List<Movie> getBestMovies() {
 
         Movie m1 = new Movie(1, "Tre uomini e una gamba");
         Movie m2 = new Movie(2, "La leggenda di Al Jhon e Jack");
         Movie m3 = new Movie(3, "Chiedimi se sono felice");
-    
-        List<Movie> film = new ArrayList<>();
-        film.add(m1);
-        film.add(m2);
-        film.add(m3);
 
-        model.addAttribute("ListaFilm", film);
+        List<Movie> movie = new ArrayList<>();
 
+        movie.add(m1);
+        movie.add(m2);
+        movie.add(m3);
+
+        return movie;
+    }
+
+    @GetMapping("/movie")
+    public String BestMovies(Model model) {
+        List<Movie> movie = getBestMovies();
+        model.addAttribute("movie", movie);
         return "Movie";
     }
 
-    @GetMapping("/songs")
-    public String getBestSongs(Model model){
-
+    private List<Songs> getBestSongs() {
         Songs s1 = new Songs(1, "Giudizi universali");
         Songs s2 = new Songs(2, "Replay");
         Songs s3 = new Songs(3, "Spaccacuore");
-    
+
         List<Songs> songs = new ArrayList<>();
         songs.add(s1);
         songs.add(s2);
         songs.add(s3);
 
-        model.addAttribute("ListaCanzoni", songs);
+        return songs;
+    }
 
+    @GetMapping("/songs")
+    public String BestSongs(Model model) {
+        List<Songs> songs = getBestSongs();
+        model.addAttribute("songs", songs);
         return "Songs";
+    }
+
+    @GetMapping("/movies/id")
+    public String getMoviesByID(@RequestParam(name = "id") int id, Model model) {
+        List<Movie> movie = getBestMovies();
+        for (Movie m : movie) {
+            if(m.getId() == id){
+               model.addAttribute("movie", m);
+               break;
+            }            
+        }
+        return "MovieByID";
+    }
+    
+    @GetMapping("/songs/id")
+    public String getSongsByID(@RequestParam(name = "id") int id, Model model) {
+        List<Songs> songs = getBestSongs();
+        for (Songs s : songs) {
+            if(s.getId() == id){
+               model.addAttribute("songs", s);
+               break;
+            }            
+        }
+        return "SongsByID";
     }
 
 }
