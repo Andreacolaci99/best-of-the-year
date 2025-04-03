@@ -1,14 +1,33 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
-<head>
+  <head>
+    <link rel="stylesheet" th:href="@{/css/application.css}" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Greeting</title>
-</head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
 
-<body>
-    <div>
-        <h1 th:text="'Best of the year by ' + ${name} + '!'" />
+  <body>
+    <div th:insert="~{fragment :: siteHeader}"></div>
+    <div style="text-align: center">
+      <h1 th:text="|Best of the year by ${name} !|"/>
     </div>
-</body>
-
+    <div style="text-align: center">
+      <img th:src="@{/img/agg.jpg}" alt="400" width="800" />
+    </div>
+    <div style="text-align: center">
+      <h2>Tu lo conosci il trio ?</h2>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
